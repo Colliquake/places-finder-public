@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 50, 0.5), rgba(0, 0, 50, 0.5)),
+    url(city-night.jpg);
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+.place-title {
+  margin-top: 250px;
+  color: #fff;
+  transition: all 2s ease-in-out;
+}
+
+.place-title h1 {
+  font-size: 48px;
+  line-height: 12px;
+}
+
+.place-title h2 {
+  font-size: 32px;
+}
+
+form {
+  margin-top: 75px;
+  transition: all 2s ease-in-out;
+}
+
+.form-format {
+  width: 600px;
+  height: 32px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid gray;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+input {
+  height: 64px;
+}
+
+form .submit {
+  background: #08c708;
+  border-color: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  /* font-weight: bold; */
+  letter-spacing: 1px;
+  height: 28px;
+  width: 200px;
+}
+
+form .submit:hover {
+  background-color: #0a9608;
+  cursor: pointer;
+}
