@@ -1,4 +1,4 @@
 <?php
     $location = $_POST["location"];
-    echo $Location;
+    echo $location;
 ?>
