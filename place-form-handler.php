@@ -31,7 +31,13 @@
         }
     }
 
-    echo json_encode(get_geocode($location));
+    $coords = json_encode(get_geocode($location));
+
+    echo '<br>';
+    echo '<br>';
+    echo 'Latitude: '.$coords['latitude']; echo '<br>';
+    echo 'Longitude: '.$coords['longitude']; echo '<br>';
+    echo 'Address: '.$coords['formatted_address'];
 
     
 
