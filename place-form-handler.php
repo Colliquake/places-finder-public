@@ -4,7 +4,6 @@
     function get_geocode($address){
         $address = urlencode($address);
         $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$address."&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o";
-        echo $url;
         $content = file_get_contents($url);
 
         // decode the json response
@@ -33,11 +32,12 @@
 
     $coords = json_encode(get_geocode($location));
 
-    echo '<br>';
-    echo '<br>';
-    echo 'Latitude: '.$coords['latitude']; echo '<br>';
-    echo 'Longitude: '.$coords['longitude']; echo '<br>';
-    echo 'Address: '.$coords['formatted_address'];
+    echo $coords;
+    // echo '<br>';
+    // echo '<br>';
+    // echo 'Latitude: '.$coords['latitude']; echo '<br>';
+    // echo 'Longitude: '.$coords['longitude']; echo '<br>';
+    // echo 'Address: '.$coords['formatted_address'];
 
     
 
