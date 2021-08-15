@@ -31,8 +31,7 @@
     }
 
     $coords = json_encode(get_geocode($location));
-    echo 'Latitude: '.$coords['latitude'];
-    echo '  Longitude: '.$coords['longitude'];
+    var_dump($coords);
     
 
     // $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.865857,-117.233742&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
