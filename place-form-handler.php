@@ -8,7 +8,7 @@
         $content = file_get_contents($url);
 
         // decode the json response
-        $resp = json_decode($resp_json, true);
+        $resp = json_decode($content, true);
         // response status will be 'OK', if able to geocode given address
         if($resp['status']=='OK'){
     	    //define empty array
