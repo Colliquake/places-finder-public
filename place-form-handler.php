@@ -48,8 +48,16 @@
         return $data_arr;
     }
     $loc = temp_arr();
-    
 
+    //temporary json of starbucks's nearby places (to save money)
+    function temp_nearby(){
+        $file = '/Users/alexr/Desktop/starbucks_places.json';
+        $contents = file_get_contents($file);
+        return $contents;
+    }
+    
+    $cont = temp_nearby();
+    echo $cont;
 
 
 
@@ -63,8 +71,8 @@
 
     $coords = coord_str($loc);
 
-    $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
-    echo $contents;
+    // $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
+    // echo $contents;
 
     // function get_nearby($coords){
     //     $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o';
