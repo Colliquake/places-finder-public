@@ -17,7 +17,7 @@
             $data_arr['longitude'] = isset($resp['results'][0]['geometry']['location']['lng']) ? $resp['results'][0]['geometry']['location']['lng'] : '';
             $data_arr['formatted_address'] = isset($resp['results'][0]['formatted_address']) ? $resp['results'][0]['formatted_address'] : '';
         
-            // verify if data is exist
+            // verify if data exists
             if(!empty($data_arr) && !empty($data_arr['latitude']) && !empty($data_arr['longitude'])){
                 return $data_arr;
             }
@@ -55,9 +55,6 @@
         $contents = file_get_contents($file);
         return $contents;
     }
-    
-    $cont = temp_nearby();
-    echo $cont;
 
 
 
@@ -71,19 +68,50 @@
 
     $coords = coord_str($loc);
 
-    // $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
-    // echo $contents;
+    function get_nearby($coords){
+        // $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o';
+        // $contents = file_get_contents($url);
+        $contents = temp_nearby();
 
-    // function get_nearby($coords){
-    //     $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o';
-    //     $contents = file_get_contents($url);
+        //decode json response
+        $resp = json_decode($contents, true);
+        //response status is 'OK'
+        if($resp['status']=='OK'){
+            $data_arr = array(array());    //TODO: need to make 2D array
+            //loop through data and transfer to array
+            for($i = 0; $i < 10; $i++){
+                $j = $i + 1;
+                $data_arr[$i]['name'] = isset($resp['results'][$j]['name']) ? $resp['results'][$j]['name'] : '';
+                $data_arr[$i]['location']['lat'] = isset($resp['results'][$j]['geometry']['location']['lat']) ? $resp['results'][$j]['geometry']['location']['lat'] : '';
+                $data_arr[$i]['location']['lng'] = isset($resp['results'][$j]['geometry']['location']['lng']) ? $resp['results'][$j]['geometry']['location']['lng'] : '';
+                $data_arr[$i]['status'] = isset($resp['results'][$j]['opening_hours']['open_now']) ? $resp['results'][$j]['opening_hours']['open_now'] : '';
+                $data_arr[$i]['rating'] = isset($resp['results'][$j]['rating']) ? $resp['results'][$j]['rating'] : '';
+            }
+            return $data_arr;
+        }
+        else{   //status of api call is something other than 'OK'
+            return false;
+        }
+    }
 
-    //     //decode json response
-    //     $resp = json_decode($contents, true);
-    //     //response status is 'OK'
-    //     if($resp['status']=='OK'){
-    //         $data_arr = array();    //TODO: need to make 2D array
+    $nearby_array = get_nearby($coords);
 
-    //     }
-    // }
+
+
+    //print out array from get_nearby
+    function display_array($nearby_array){
+        for($i = 0; $i < count($nearby_array); $i++){
+            echo "<br>";
+            echo $nearby_array[$i]['name']; echo "<br>";
+            echo $nearby_array[$i]['location']['lat']; echo "<br>";
+            echo $nearby_array[$i]['location']['lng']; echo "<br>";
+            if($nearby_array[$i]['status'] == 1){
+                echo "Open <br>";
+            }
+            else    echo "Closed <br>";
+            // echo $nearby_array[$i]['status']; echo "<br>";
+            echo $nearby_array[$i]['rating']; echo "<br>";
+        }
+    }
+    display_array($nearby_array);
 ?>
