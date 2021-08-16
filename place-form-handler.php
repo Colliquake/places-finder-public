@@ -32,6 +32,9 @@
 
     // $loc = get_geocode($location);
 
+
+
+
     
     //temporary array to get geocode of specified location (starbucks) (to save money)
     function temp_arr(){
@@ -44,6 +47,11 @@
     }
     $loc = temp_arr();
     
+
+
+
+
+
     //converts array to a string as: "[latitude],[longitude]"
     function coord_str($coordinates){
         $coord = $coordinates['latitude'].",".$coordinates['longitude'];
@@ -52,7 +60,19 @@
 
     $coords = coord_str($loc);
 
-    $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
+    // $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
+    // echo $contents;
 
-    echo $contents;
+    function get_nearby($coords){
+        $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o';
+        $contents = file_get_contents($url);
+
+        //decode json response
+        $resp = json_decode($contents, true);
+        //response status is 'OK'
+        if($resp['status']=='OK'){
+            $data_arr = array();    //TODO: need to make 2D array
+
+        }
+    }
 ?>
