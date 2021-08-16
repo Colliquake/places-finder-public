@@ -30,12 +30,29 @@
         }
     }
 
-    $coords = json_encode(get_geocode($location));
+    // $loc = get_geocode($location);
 
-    //Starbucks coordinates: Latitude:	32.9153341, Longitude:	-117.1208223
     
+    //temporary array to get geocode of specified location (starbucks) (to save money)
+    function temp_arr(){
+        $data_arr = array();
+        $data_arr['latitude'] = 32.9153341;
+        $data_arr['longitude'] = -117.1208223;
+        $data_arr['formatted_address'] = "10720 Westview Pkwy, San Diego, CA 92126, USA";
 
-    // $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.865857,-117.233742&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
+        return $data_arr;
+    }
+    $loc = temp_arr();
+    
+    //converts array to a string as: "[latitude],[longitude]"
+    function coord_str($coordinates){
+        $coord = $coordinates['latitude'].",".$coordinates['longitude'];
+        return $coord;
+    }
 
-    // echo $contents;
+    $coords = coord_str($loc);
+
+    $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
+
+    echo $contents;
 ?>
