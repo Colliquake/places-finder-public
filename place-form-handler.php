@@ -40,7 +40,7 @@
     }
 
     $coords = coord_str($loc);
-    echo $coords;
+    var_dump($coords);
 
     //Starbucks coordinates: Latitude:	32.9153341, Longitude:	-117.1208223
     
