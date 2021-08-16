@@ -30,7 +30,7 @@
         }
     }
 
-    // $loc = json_encode(get_geocode($location));
+    // $loc = get_geocode($location);
 
     //temporary array to get geocode of specified location (starbucks) (to save money)
     function temp_arr(){
@@ -51,13 +51,8 @@
     }
 
     $coords = coord_str($loc);
-    echo $coords;
 
+    $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
 
-    //Starbucks coordinates: Latitude:	32.9153341, Longitude:	-117.1208223
-    
-
-    // $contents = file_get_contents('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=32.865857,-117.233742&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o');
-
-    // echo $contents;
+    echo $contents;
 ?>
