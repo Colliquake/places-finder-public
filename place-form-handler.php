@@ -42,7 +42,8 @@
         return $data_arr;
     }
 
-    $loc = json_encode(temp_arr());
+    // $loc = json_encode(temp_arr());
+    $loc = temp_arr();
     
     
     //decodes json from get_geocode and converts to string as: "[latitude],[longitude]"
@@ -58,7 +59,7 @@
     $loc = json_decode($loc);
     var_dump($loc);
 
-    echo $loc[0];
+    echo $loc['latitude'];
 
     //Starbucks coordinates: Latitude:	32.9153341, Longitude:	-117.1208223
     
