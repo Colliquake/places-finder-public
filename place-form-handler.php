@@ -43,17 +43,17 @@
     }
 
     $loc = json_encode(temp_arr());
-    var_dump($loc);
     
-    // //decodes json from get_geocode and converts to string as: "[latitude],[longitude]"
-    // function coord_str($coordinates){
-    //     $coordinates = json_decode($coordinates);
-    //     $coord = $coordinates['latitude'].",".$coordinates['longitude'];
-    //     return $coord;
-    // }
+    
+    //decodes json from get_geocode and converts to string as: "[latitude],[longitude]"
+    function coord_str($coordinates){
+        $coordinates = json_decode($coordinates);
+        $coord = $coordinates['latitude'].",".$coordinates['longitude'];
+        return $coord;
+    }
 
-    // $coords = coord_str($loc);
-    // var_dump($coords);
+    $coords = coord_str($loc);
+    var_dump($coords);
 
     //Starbucks coordinates: Latitude:	32.9153341, Longitude:	-117.1208223
     
