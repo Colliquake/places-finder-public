@@ -56,7 +56,7 @@
     // $coords = coord_str($loc);
     // var_dump($coords);
 
-    $loc = json_decode($loc);
+    // $loc = json_decode($loc);
     var_dump($loc);
 
     echo $loc['latitude'];
