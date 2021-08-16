@@ -42,7 +42,7 @@
         return $data_arr;
     }
 
-    $loc = temp_arr();
+    $loc = json_encode(temp_arr());
     var_dump($loc);
     
     // //decodes json from get_geocode and converts to string as: "[latitude],[longitude]"
