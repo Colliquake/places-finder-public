@@ -31,6 +31,7 @@
     }
 
     $loc = json_encode(get_geocode($location));
+    var_dump($loc);
     
     //decodes json from get_geocode and converts to string as: "[latitude],[longitude]"
     function coord_str($coordinates){
