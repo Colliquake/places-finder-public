@@ -30,7 +30,7 @@
         }
     }
 
-    // $loc = get_geocode($location);
+    $loc = get_geocode($location);
 
 
 
@@ -38,23 +38,23 @@
 
     
 
-    //temporary array to get geocode of specified location (starbucks) (to save money)
-    function temp_arr(){
-        $data_arr = array();
-        $data_arr['latitude'] = 32.9153341;
-        $data_arr['longitude'] = -117.1208223;
-        $data_arr['formatted_address'] = "10720 Westview Pkwy, San Diego, CA 92126, USA";
+    // //temporary array to get geocode of specified location (starbucks) (to save money)
+    // function temp_arr(){
+    //     $data_arr = array();
+    //     $data_arr['latitude'] = 32.9153341;
+    //     $data_arr['longitude'] = -117.1208223;
+    //     $data_arr['formatted_address'] = "10720 Westview Pkwy, San Diego, CA 92126, USA";
 
-        return $data_arr;
-    }
-    $loc = temp_arr();
+    //     return $data_arr;
+    // }
+    // $loc = temp_arr();
 
-    //temporary json of starbucks's nearby places (to save money)
-    function temp_nearby(){
-        $file = '/Users/alexr/Desktop/starbucks_places.json';
-        $contents = file_get_contents($file);
-        return $contents;
-    }
+    // //temporary json of starbucks's nearby places (to save money)
+    // function temp_nearby(){
+    //     $file = '/Users/alexr/Desktop/starbucks_places.json';
+    //     $contents = file_get_contents($file);
+    //     return $contents;
+    // }
 
 
 
@@ -69,15 +69,15 @@
     $coords = coord_str($loc);
 
     function get_nearby($coords){
-        // $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o';
-        // $contents = file_get_contents($url);
-        $contents = temp_nearby();
+        $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o';
+        $contents = file_get_contents($url);
+        // $contents = temp_nearby();
 
         //decode json response
         $resp = json_decode($contents, true);
         //response status is 'OK'
         if($resp['status']=='OK'){
-            $data_arr = array(array());    //TODO: need to make 2D array
+            $data_arr = array(array());
             //loop through data and transfer to array
             for($i = 0; $i < 10; $i++){
                 $j = $i + 1;
