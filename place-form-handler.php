@@ -30,7 +30,7 @@
         }
     }
 
-    $loc = get_geocode($location);
+    // $loc = get_geocode($location);
 
 
 
@@ -94,7 +94,7 @@
         }
     }
 
-    $nearby_array = get_nearby($coords);
+    // $nearby_array = get_nearby($coords);
 
 
 
@@ -113,7 +113,7 @@
             echo $nearby_array[$i]['rating']; echo "<br>";
         }
     }
-    display_array($nearby_array);
+    // display_array($nearby_array);
 
 
     echo '<a href="map.html">Display these on a map</a>';
