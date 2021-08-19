@@ -114,4 +114,7 @@
         }
     }
     display_array($nearby_array);
+
+
+    echo '<a href="./map.html">Display these on a map</a>';
 ?>
