@@ -98,20 +98,23 @@
 
 
 
-    //print out array from get_nearby
-    function display_array($nearby_array){
-        for($i = 0; $i < count($nearby_array); $i++){
-            echo "<br>";
-            echo $nearby_array[$i]['name']; echo "<br>";
-            echo $nearby_array[$i]['location']['lat']; echo "<br>";
-            echo $nearby_array[$i]['location']['lng']; echo "<br>";
-            if($nearby_array[$i]['status'] == 1){
-                echo "Open <br>";
-            }
-            else    echo "Closed <br>";
-            // echo $nearby_array[$i]['status']; echo "<br>";
-            echo $nearby_array[$i]['rating']; echo "<br>";
-        }
-    }
-    display_array($nearby_array);
+    // //print out array from get_nearby
+    // function display_array($nearby_array){
+    //     for($i = 0; $i < count($nearby_array); $i++){
+    //         echo "<br>";
+    //         echo $nearby_array[$i]['name']; echo "<br>";
+    //         echo $nearby_array[$i]['location']['lat']; echo "<br>";
+    //         echo $nearby_array[$i]['location']['lng']; echo "<br>";
+    //         if($nearby_array[$i]['status'] == 1){
+    //             echo "Open <br>";
+    //         }
+    //         else    echo "Closed <br>";
+    //         // echo $nearby_array[$i]['status']; echo "<br>";
+    //         echo $nearby_array[$i]['rating']; echo "<br>";
+    //     }
+    // }
+    // display_array($nearby_array);
+
+
+    echo '<a href="map.html">Display these on a map</a>';
 ?>
