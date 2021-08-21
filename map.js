@@ -9,6 +9,8 @@ function initMap(){
         },
         zoom: 3
     });
+    
+    //prompt to go to user's location
     infoWindow = new google.maps.InfoWindow();
     const locationButton = document.createElement("button");
     locationButton.textContent = "Pan to Current Location";
