@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Places Finder</title>
     <link rel="stylesheet" type="text/css" href="mapstyle.css">
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "place-form-handler.php");
+        xhr.onload = function(){
+            var jsvar = this.response;
+            console.log(jsvar);
+        }
+    </script>
     <script src="map.js" type="text/javascript"></script>
 </head>
 <body>
