@@ -115,6 +115,6 @@
     // }
     // display_array($nearby_array);
 
-    echo '<a href="map.html">Display these on a map</a>';
     echo json_encode($nearby_array);
+    echo '<a href="map.html">Display these on a map</a>';
 ?>
