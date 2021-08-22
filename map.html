@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="mapstyle.css">
     <script>
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "place-form-handler.php");
+        xhr.open("GET", "place-form-handler.php");
         xhr.onload = function(){
             var jsvar = this.response;
             console.log(jsvar);
