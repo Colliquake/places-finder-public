@@ -115,5 +115,8 @@
     // }
     // display_array($nearby_array);
 
-    echo $nearby_array;
+
 ?>
+
+<script type="text/javascript"> var jArr = <?php echo json_encode($nearby_array); ?>; </script>
+<script type="text/javascript" src="xhr.js"></script>
