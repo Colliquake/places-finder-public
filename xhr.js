@@ -11,3 +11,11 @@
 for(var i = 0; i < jArr.length; i++){
     console.log(jArr[i]);
 }
+
+// document.onreadystatechange = () => {
+//     if(document.readyState === 'complete') {
+//         for(var i = 0; i < jArr.length; i++){
+//             console.log(jArr[i]);
+//         }
+//     }
+// };

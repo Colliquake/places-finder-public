@@ -115,7 +115,7 @@
     // }
     // display_array($nearby_array);
 
-
+    header("Location: map.html");
 ?>
 
 <script type="text/javascript"> var jArr = <?php echo json_encode($nearby_array); ?>; </script>

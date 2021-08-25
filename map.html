@@ -16,6 +16,25 @@
             alert(jsvar);
         }
     </script> -->
+    <!-- <script type="text/javascript" src="jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $('#prev').click(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'places.php',
+                    data: 'id=testdata',
+                    dataType: 'json',
+                    cache: false,
+                    success: function(result) {
+                        $('#content1').html(result[0]);
+                    },
+                });
+            });
+        });
+    </script> -->
+    <script src="xhr.js" type="text/javascript"></script>
+    <!-- <script type="text/javascript" src="place-form-handler.php" /></script> -->
     <script src="map.js" type="text/javascript"></script>
 </head>
 <body>
