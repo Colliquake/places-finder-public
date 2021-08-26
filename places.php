@@ -98,43 +98,25 @@
 
 
 
-    //print out array from get_nearby
-    function display_array($nearby_array){
-        for($i = 0; $i < count($nearby_array); $i++){
-            echo "<br>";
-            echo $nearby_array[$i]['name']; echo "<br>";
-            echo $nearby_array[$i]['location']['lat']; echo "<br>";
-            echo $nearby_array[$i]['location']['lng']; echo "<br>";
-            if($nearby_array[$i]['status'] == 1){
-                echo "Open <br>";
-            }
-            else    echo "Closed <br>";
-            // echo $nearby_array[$i]['status']; echo "<br>";
-            echo "Rating: "; echo $nearby_array[$i]['rating']; echo "<br>";
-        }
-    }
-    display_array($nearby_array);
+    // //print out array from get_nearby
+    // function display_array($nearby_array){
+    //     for($i = 0; $i < count($nearby_array); $i++){
+    //         echo "<br>";
+    //         echo $nearby_array[$i]['name']; echo "<br>";
+    //         echo $nearby_array[$i]['location']['lat']; echo "<br>";
+    //         echo $nearby_array[$i]['location']['lng']; echo "<br>";
+    //         if($nearby_array[$i]['status'] == 1){
+    //             echo "Open <br>";
+    //         }
+    //         else    echo "Closed <br>";
+    //         // echo $nearby_array[$i]['status']; echo "<br>";
+    //         echo $nearby_array[$i]['rating']; echo "<br>";
+    //     }
+    // }
+    // display_array($nearby_array);
 
-
-    // echo '<script>';
-    // echo 'var jArr = ' . json_encode($nearby_array) . ';';
-    // echo '</script>';
-
-    // header('content-type: text/javascript');
-    // $val = $nearby_array;
+    header("Location: map.html");
 ?>
 
-<!-- function name(){
-    var ret = $val;
-    alert(ret.join('\n'));
-} -->
-
-<script type="text/javascript">
-    var jArr =<?php echo json_encode($nearby_array); ?>;
-</script>
+<script type="text/javascript"> var jArr = <?php echo json_encode($nearby_array); ?>; </script>
 <script type="text/javascript" src="xhr.js"></script>
-
-<?php
-    // header("Location: map.html");
-    echo '<a href="map.html">Display these on a map</a>';
-?>

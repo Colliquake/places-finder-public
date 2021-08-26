@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Places Finder</title>
     <link rel="stylesheet" type="text/css" href="mapstyle.css">
+    <!-- <script src="xhr.js" type="text/javascript"></script> -->
+    <!-- <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'places.php', true);
+        xhr.send();
+        xhr.onload = function(){
+            var jsvar = this.response;
+            alert(jsvar);
+        }
+    </script> -->
+    <!-- <script type="text/javascript" src="jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function() {
+            $('#prev').click(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'places.php',
+                    data: 'id=testdata',
+                    dataType: 'json',
+                    cache: false,
+                    success: function(result) {
+                        $('#content1').html(result[0]);
+                    },
+                });
+            });
+        });
+    </script> -->
+    <!-- <script src="xhr.js" type="text/javascript"></script> -->
+    <!-- <script type="text/javascript" src="place-form-handler.php" /></script> -->
     <script src="map.js" type="text/javascript"></script>
 </head>
 <body>
