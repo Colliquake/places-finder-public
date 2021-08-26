@@ -1,3 +1,20 @@
+function getCookie(cname){
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++){
+    let c = ca[i];
+    while(c.charAt(0) == ' '){
+      c = c.substring(1);
+    }
+    if(c.indexOf(name) == 0){
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
 let map;
 let infoWindow;
 
@@ -9,6 +26,12 @@ function initMap(){
         },
         zoom: 3
     });
+
+    var json_string = getCookie("nearby_arr");
+    var arr = JSON.parse(json_string);
+    for(var i = 0; i < arr.length; i++){
+      console.log(arr[i]);
+    }
     
     //prompt to go to user's location
     infoWindow = new google.maps.InfoWindow();

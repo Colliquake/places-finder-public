@@ -110,7 +110,7 @@
             }
             else    echo "Closed <br>";
             // echo $nearby_array[$i]['status']; echo "<br>";
-            echo $nearby_array[$i]['rating']; echo "<br>";
+            echo "Rating: "; echo $nearby_array[$i]['rating']; echo "<br>";
         }
     }
     display_array($nearby_array);
