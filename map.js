@@ -29,8 +29,18 @@ function initMap(){
 
     var json_string = getCookie("nearby_arr");
     var arr = JSON.parse(json_string);
-    for(var i = 0; i < arr.length; i++){
-      console.log(arr[i]);
+    // for(var i = 0; i < arr.length; i++){
+    //   console.log(arr[i]);
+    // }
+
+    for(let i = 0; i < arr.length; i++){
+      new google.maps.Marker({
+        position: {
+          lat: arr[i].lat,
+          lng: arr[i].lng
+        },
+        map: map,
+      });
     }
     
     //prompt to go to user's location
@@ -48,9 +58,17 @@ function initMap(){
               lng: position.coords.longitude,
             };
             infoWindow.setPosition(pos);
-            infoWindow.setContent("Location found.");
+            infoWindow.setContent("Current location found.");
             infoWindow.open(map);
             map.setCenter(pos);
+
+            const marker = new google.maps.Marker({
+              position: {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              },
+              map: map,
+            });
           },
           () => {
             handleLocationError(true, infoWindow, map.getCenter());

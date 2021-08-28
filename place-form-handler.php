@@ -82,8 +82,8 @@
             for($i = 0; $i < 10; $i++){
                 $j = $i + 1;
                 $data_arr[$i]['name'] = isset($resp['results'][$j]['name']) ? $resp['results'][$j]['name'] : '';
-                $data_arr[$i]['location']['lat'] = isset($resp['results'][$j]['geometry']['location']['lat']) ? $resp['results'][$j]['geometry']['location']['lat'] : '';
-                $data_arr[$i]['location']['lng'] = isset($resp['results'][$j]['geometry']['location']['lng']) ? $resp['results'][$j]['geometry']['location']['lng'] : '';
+                $data_arr[$i]['lat'] = isset($resp['results'][$j]['geometry']['location']['lat']) ? $resp['results'][$j]['geometry']['location']['lat'] : '';
+                $data_arr[$i]['lng'] = isset($resp['results'][$j]['geometry']['location']['lng']) ? $resp['results'][$j]['geometry']['location']['lng'] : '';
                 $data_arr[$i]['status'] = isset($resp['results'][$j]['opening_hours']['open_now']) ? $resp['results'][$j]['opening_hours']['open_now'] : '';
                 $data_arr[$i]['rating'] = isset($resp['results'][$j]['rating']) ? $resp['results'][$j]['rating'] : '';
             }
@@ -102,19 +102,20 @@
     function display_array($nearby_array){
         for($i = 0; $i < count($nearby_array); $i++){
             echo "<br>";
-            echo $nearby_array[$i]['name']; echo "<br>";
-            echo $nearby_array[$i]['location']['lat']; echo "<br>";
-            echo $nearby_array[$i]['location']['lng']; echo "<br>";
+            echo "Name: " . $nearby_array[$i]['name']; echo "<br>";
             if($nearby_array[$i]['status'] == 1){
                 echo "Open <br>";
             }
             else    echo "Closed <br>";
-            // echo $nearby_array[$i]['status']; echo "<br>";
+            echo "Coordinates:"; echo "<br>";
+            echo $nearby_array[$i]['lat']; echo "<br>";
+            echo $nearby_array[$i]['lng']; echo "<br>";
             echo "Rating: "; echo $nearby_array[$i]['rating']; echo "<br>";
         }
     }
     display_array($nearby_array);
 
+    echo "<br>";
 
     // echo '<script>';
     // echo 'var jArr = ' . json_encode($nearby_array) . ';';
