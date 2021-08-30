@@ -97,6 +97,8 @@
     $nearby_array = get_nearby($coords);
 
 
+    echo '<a href="map.html">Display these on a map</a>';
+    echo "<br>"; echo "<br>";
 
     //print out array from get_nearby
     function display_array($nearby_array){
@@ -134,8 +136,3 @@
     var jArr =<?php echo json_encode($nearby_array); ?>;
 </script>
 <script type="text/javascript" src="xhr.js"></script>
-
-<?php
-    // header("Location: map.html");
-    echo '<a href="map.html">Display these on a map</a>';
-?>

@@ -24,7 +24,7 @@ function initMap(){
             lat: 39.8097343,
             lng: -98.5556199
         },
-        zoom: 3
+        zoom: 5
     });
 
     var json_string = getCookie("nearby_arr");
@@ -60,6 +60,7 @@ function initMap(){
             infoWindow.setPosition(pos);
             infoWindow.setContent("Current location found.");
             infoWindow.open(map);
+            map.setZoom(14);
             map.setCenter(pos);
 
             const marker = new google.maps.Marker({
