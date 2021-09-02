@@ -8,13 +8,13 @@
 //     }
 // }
 
-for(var i = 0; i < jArr.length; i++){
+for (var i = 0; i < jArr.length; i++) {
     console.log(jArr[i]);
 }
 
 nearby_list = [...jArr];
 
-function setCookie(cname, cvalue){
+function setCookie(cname, cvalue) {
     const d = new Date();
     // d.setTime(d.getTime() + (exdays*24*60*60*1000));     //re-add 'exdays' to parameter
     d.setTime(d.getTime() + 120000);     //manually set to expire in 2 minutes

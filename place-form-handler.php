@@ -3,7 +3,7 @@
 
     function get_geocode($address){
         $address = urlencode($address);
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$address."&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o";
+        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=".$address."&key=[KEY]";
         $content = file_get_contents($url);
 
         // decode the json response
@@ -32,34 +32,6 @@
 
     $loc = get_geocode($location);
 
-
-
-
-
-    
-
-    // //temporary array to get geocode of specified location (starbucks) (to save money)
-    // function temp_arr(){
-    //     $data_arr = array();
-    //     $data_arr['latitude'] = 32.9153341;
-    //     $data_arr['longitude'] = -117.1208223;
-    //     $data_arr['formatted_address'] = "10720 Westview Pkwy, San Diego, CA 92126, USA";
-
-    //     return $data_arr;
-    // }
-    // $loc = temp_arr();
-
-    // //temporary json of starbucks's nearby places (to save money)
-    // function temp_nearby(){
-    //     $file = '/Users/alexr/Desktop/starbucks_places.json';
-    //     $contents = file_get_contents($file);
-    //     return $contents;
-    // }
-
-
-
-
-
     //converts array to a string as: "[latitude],[longitude]"
     function coord_str($coordinates){
         $coord = $coordinates['latitude'].",".$coordinates['longitude'];
@@ -69,9 +41,8 @@
     $coords = coord_str($loc);
 
     function get_nearby($coords){
-        $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=AIzaSyAISncWGWJBn3bSM0O8AxyW2hJjkmtbx6o';
+        $url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location='.$coords.'&radius=1500&key=[KEY]';
         $contents = file_get_contents($url);
-        // $contents = temp_nearby();
 
         //decode json response
         $resp = json_decode($contents, true);
@@ -126,11 +97,6 @@
     // header('content-type: text/javascript');
     // $val = $nearby_array;
 ?>
-
-<!-- function name(){
-    var ret = $val;
-    alert(ret.join('\n'));
-} -->
 
 <script type="text/javascript">
     var jArr =<?php echo json_encode($nearby_array); ?>;
